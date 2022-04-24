@@ -2,18 +2,19 @@ export default {
     namespaced: true,
 
     state: () => ({
-        mobile: '',
+        mobile: localStorage.getItem('auth-mobile') ||  '',
         token: localStorage.getItem('auth-token') || '',
     }),
 
     mutations: {
         setToken(state, token) {
             state.token = token
-            localStorage.setItem('auth-token', token)
+            localStorage.setItem('auth-token',  JSON.stringify(token))
         },
 
         setMobile(state, mobile) {
             state.mobile = mobile
+            localStorage.setItem('auth-mobile', mobile)
         },
     },
 
@@ -36,6 +37,7 @@ export default {
             context.commit('setToken', '');
             context.commit('setMobile', {});
             localStorage.removeItem('auth-token')
+            localStorage.removeItem('auth-mobile')
         }
     }
 }

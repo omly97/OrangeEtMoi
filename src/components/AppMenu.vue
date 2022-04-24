@@ -1,14 +1,22 @@
 <template>
     <v-list>
         <!-- account Infos -->
-        <v-list-item v-if="!loading">
-            <v-list-item-avatar rounded size="60">
-                <v-img src="https://cdn.vuetifyjs.com/images/cards/cooking.png"></v-img>
-            </v-list-item-avatar>
-            <v-list-item-content>
-                <v-list-item-subtitle>Bienvenue</v-list-item-subtitle>
-                <v-list-item-title class="font-weight-medium">{{ `${account.firstName} ${account.lastName}` }}</v-list-item-title>
-            </v-list-item-content>
+        <v-list-item>
+            <template v-if="loading" >
+                <v-list-item-content>
+                    <v-skeleton-loader type="list-item-avatar-two-line"></v-skeleton-loader>
+                </v-list-item-content>
+            </template>
+
+            <template v-else>
+                <v-list-item-avatar rounded size="60">
+                    <v-img :src="userImg"></v-img>
+                </v-list-item-avatar>
+                <v-list-item-content>
+                    <v-list-item-subtitle>Bienvenue</v-list-item-subtitle>
+                    <v-list-item-title class="font-weight-medium">{{ `${account.firstName} ${account.lastName}` }}</v-list-item-title>
+                </v-list-item-content>
+            </template>
         </v-list-item>
 
         <v-divider class="mx-2 my-3"></v-divider>
@@ -35,16 +43,31 @@
                 <v-list-item-subtitle v-text="item.subtitle"></v-list-item-subtitle>
             </v-list-item-content>
         </v-list-item>
+
+        <v-divider class="mx-2 my-3"></v-divider>
+
+        <!-- Logout -->
+        <v-list-item @click="logout">
+            <v-list-item-icon>
+                <v-icon color="#FF7900">mdi-logout</v-icon>
+            </v-list-item-icon>
+            <v-list-item-content>
+                <v-list-item-title class="font-weight-bold oem-text">Je me deconnecte</v-list-item-title>
+            </v-list-item-content>
+        </v-list-item>
     </v-list>
 </template>
 
 <script>
+import userImg from '../assets/img/user.png';
+
 export default {
     name: 'AppMenu',
     data() {
         return {
             loading: false,
             account: {},
+            userImg: userImg,
             menu1: [
                 {
                     title: 'Mon suivi Conso',
@@ -100,9 +123,10 @@ export default {
         },
         logout() {
             this.loading = true;
-            this.$axios.post('logout')
+            this.$axios.post('auth/logout')
                 .then(() => {
-                    location.reload();
+                    this.$store.dispatch('auth/logout');
+                    this.$router.push({ name: 'login' });
                 })
                 .catch(error => {
                     console.log(error);

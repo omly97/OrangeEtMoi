@@ -12,7 +12,6 @@ const instance = axios.create({
 instance.defaults.withCredentials = false;
 instance.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 instance.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
-// instance.defaults.headers.post['Access-Control-Allow-Origin'] = '*',
 instance.interceptors.response.use(
     // Tout code d'état qui se situe dans la plage de 2xx provoque le déclenchement de cette fonction
     function (response) {
@@ -34,5 +33,13 @@ instance.interceptors.response.use(
         }
     }
 );
+
+// Auth token
+const token = localStorage.getItem('auth-token')
+
+if (token) {
+    const tokenJSON = JSON.parse(token)
+    instance.defaults.headers.common['Authorization'] = `${tokenJSON.token_type} ${tokenJSON.access_token}`
+}
 
 export default instance;

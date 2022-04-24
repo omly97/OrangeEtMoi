@@ -76,7 +76,6 @@ export default {
             this.loading = true;
             this.$axios.post('/auth/login', this.form.fields)
                 .then(response => {
-                    console.log(this.form.fields.username);
                     this.$store.commit('auth/setToken', response);
                     this.$store.commit('auth/setMobile', this.form.fields.username);
                     this.$axios.defaults.headers.common['Authorization'] = `${response.token_type} ${response.access_token}`;
