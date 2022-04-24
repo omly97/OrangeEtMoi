@@ -108,8 +108,7 @@ export default {
     methods: {
         fetchAccount() {
             this.loading = true
-            let mobile = this.$store.state.auth.mobile
-            this.$axios.get(`selfcare-b2c-account-management/api/account-management/account/${mobile}`)
+            this.$api.getAccount(this.$store.state.auth.mobile)
                 .then(response => {
                     this.account = response;
                     this.$store.commit('account/setAccount', response);
@@ -123,10 +122,11 @@ export default {
         },
         logout() {
             this.loading = true;
-            this.$axios.post('auth/logout')
+            this.$api.logout()
                 .then(() => {
                     this.$store.dispatch('auth/logout');
                     this.$router.push({ name: 'login' });
+                    this.$vuetify.theme.dark = false;
                 })
                 .catch(error => {
                     console.log(error);

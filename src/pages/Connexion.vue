@@ -74,7 +74,7 @@ export default {
     methods: {
         login() {
             this.loading = true;
-            this.$axios.post('/auth/login', this.form.fields)
+            this.$api.login(this.form.fields)
                 .then(response => {
                     this.$store.commit('auth/setToken', response);
                     this.$store.commit('auth/setMobile', this.form.fields.username);
