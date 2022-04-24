@@ -18,17 +18,16 @@
 </template>
 
 <script>
-import achatCreditIcon from "../assets/menu/achat-credit.svg";
-import achatIllimixIcon from "../assets/menu/achat-pass-illimix.svg";
-import achatInternetIcon from "../assets/menu/achat-pass-internet.svg";
-// import achatOrangeMoneyIcon from "../assets/menu/orange-money.svg";
-import sosIcon from "../assets/menu/sos.svg";
-import illustrationIcon from "../assets/menu/illustration.svg";
+import achatCreditIcon from "../assets/icons/achat-credit.svg";
+import achatIllimixIcon from "../assets/icons/achat-pass-illimix.svg";
+import achatInternetIcon from "../assets/icons/achat-pass-internet.svg";
+import sosIcon from "../assets/icons/sos.svg";
+import illustrationIcon from "../assets/icons/illustration.svg";
 
-import orangeIcon from "../assets/logo/orange.png";
-import rapidoIcon from "../assets/logo/rapido.png";
-import sonatelIcon from "../assets/logo/sonatel.png";
-import woyofalIcon from "../assets/logo/woyofal.png";
+import orangeIcon from "../assets//img/logo-orange.png";
+import rapidoIcon from "../assets//img/logo-rapido.png";
+import sonatelIcon from "../assets//img/logo-sonatel.png";
+import woyofalIcon from "../assets//img/logo-woyofal.png";
 
 const TAG_ACHAT = 'achat';
 const TAG_TRANSFERT = 'transfert';

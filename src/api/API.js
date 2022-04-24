@@ -22,11 +22,19 @@ export default class API {
         return axios.get(`selfcare-b2c-conso/api/suivi-conso/${mobile}?code=1&code=2&code=6`)
     }
 
+    static getFormule(mobile) {
+        return axios.get(`selfcare-b2c-account-management/api/abonne/v1/customerOffer/${mobile}`)
+    }
+
     static getSuiviConso(mobile) {
         return axios.get(`selfcare-b2c-conso/api/suivi-conso/${mobile}`)
     }
 
-    static getBannieres(codeFormule=9131) {
+    static getSuiviConsoByDays(mobile, days) {
+        return axios.get(`selfcare-b2c-conso/api/suivi-conso-by-days/${mobile}/${days}`)
+    }
+
+    static getBannieresOfFormule(codeFormule=9131) {
         return axios.get(`selfcare-b2c-conso/api/bannieres-by-formule/${codeFormule}?zone=dashboard`)
     }
 

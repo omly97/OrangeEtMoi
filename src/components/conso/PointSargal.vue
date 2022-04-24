@@ -25,8 +25,8 @@
 </template>
 
 <script>
-import backgroundSargal from '../../assets/img/sargal-background.svg'
-import pointsSargal from '../../assets/img/sargal-points.svg'
+import backgroundSargal from '../../assets/icons/sargal-background.svg'
+import pointsSargal from '../../assets/icons/sargal-points.svg'
 
 export default {
     name: 'PointSargal',

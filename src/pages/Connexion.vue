@@ -54,7 +54,7 @@
 </template>
 
 <script>
-import ibouImg from '../assets/img/ibou-connection.svg'
+import ibouImg from '../assets/icons/ibou-connection.svg'
 
 export default {
     name: 'ConnexionPage',
