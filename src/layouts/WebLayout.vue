@@ -25,7 +25,9 @@
 
                         <!-- App -->
                         <v-col cols="12" xl="6" lg="6" md="6">
-                            <router-view></router-view>
+                            <div class="sticky-top">
+                                <router-view></router-view>
+                            </div>
                         </v-col>
 
                         <!-- Services -->
@@ -54,6 +56,6 @@ export default {
 <style scoped>
 .sticky-top {
     position: sticky;
-    top: 0;
+    top: 80px;
 }
 </style>

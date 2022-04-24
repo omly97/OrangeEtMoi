@@ -10,7 +10,7 @@
 
             <template v-else>
                 <v-list-item-avatar rounded size="60">
-                    <v-img :src="userImg"></v-img>
+                    <v-img :src="account.imageProfil == null ? userImg : account.imageProfil"></v-img>
                 </v-list-item-avatar>
                 <v-list-item-content>
                     <v-list-item-subtitle>Bienvenue</v-list-item-subtitle>
@@ -22,7 +22,7 @@
         <v-divider class="mx-2 my-3"></v-divider>
 
         <!-- Menu 1 -->
-        <v-list-item v-for="(item, i) in menu1" :key="i" link>
+        <v-list-item v-for="(item, i) in menu1" :key="i" link :to="{ name: item.routeName }">
             <v-list-item-icon>
                 <v-icon v-text="item.icon"></v-icon>
             </v-list-item-icon>
@@ -34,7 +34,7 @@
         <v-divider class="mx-2 my-3"></v-divider>
 
         <!-- Menu 2 -->
-        <v-list-item v-for="(item, i) in menu2" :key="i+10" link>
+        <v-list-item v-for="(item, i) in menu2" :key="i+10" link :to="{ name: item.routeName }">
             <v-list-item-icon>
                 <v-icon v-text="item.icon"></v-icon>
             </v-list-item-icon>
@@ -71,12 +71,17 @@ export default {
             menu1: [
                 {
                     title: 'Mon suivi Conso',
-                    routeName: 'Dashboard',
+                    routeName: 'MyConso',
                     icon: 'mdi-circle-slice-6'
                 },
                 {
+                    title: 'Mon Historiqe',
+                    routeName: 'MyHistorical',
+                    icon: 'mdi-clipboard-text-clock-outline'
+                },
+                {
                     title: 'Ma formule',
-                    routeName: 'Dashboard',
+                    routeName: 'MyFormule',
                     icon: 'mdi-tag-text-outline'
                 },
             ],
@@ -84,19 +89,19 @@ export default {
                 {
                     title: 'Mon compte',
                     subtitle: 'Modifier mes infos perssonnelles',
-                    routeName: 'Dashboard',
+                    routeName: 'MyAccount',
                     icon: 'mdi-account-tie'
                 },
-                {
+                /* {
                     title: "Besoin d'aide",
                     subtitle: 'Communauté',
                     routeName: 'Dashboard',
                     icon: 'mdi-face-agent'
-                },
+                }, */
                 {
                     title: 'Assistance',
                     subtitle: ' Vous avez des soucis ?',
-                    routeName: 'Dashboard',
+                    routeName: 'MyEmergencies',
                     icon: 'mdi-help-circle-outline'
                 }
             ],

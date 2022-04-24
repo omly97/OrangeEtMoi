@@ -1,9 +1,9 @@
 <template>
-    <div>Welcome Page</div>
+    <div>MyFormule Page</div>
 </template>
 
 <script>
 export default {
-    name: 'WelcomePage',
+    name: 'MyFormule',
 }
 </script>

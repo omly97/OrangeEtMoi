@@ -10,7 +10,7 @@ const ifAuthenticated = ( to, from, next ) => {
 }
 
 const ifNotAuthenticated = ( to, from, next ) => {
-    return ! store.getters['auth/isAuthenticated'] ? next() : next({ name: 'dashboard' })
+    return ! store.getters['auth/isAuthenticated'] ? next() : next({ name: 'MyConso' })
 }
 
 
@@ -29,16 +29,40 @@ const router = new VueRouter({
         },
 
         /**
-         * Dashboard
+         * MyConso
          */
         {
-            path: '/my-account',
+            path: '/account',
             component: () => import('../App2.vue'),
             children: [
                 {
-                    path: '/',
-                    name: 'dashboard',
-                    component: () => import('../pages/Welcome.vue'),
+                    path: '/my-conso',
+                    name: 'MyConso',
+                    component: () => import('../pages/MyConso.vue'),
+                    beforeEnter: ifAuthenticated
+                },
+                {
+                    path: '/my-historical',
+                    name: 'MyHistorical',
+                    component: () => import('../pages/MyHistorical.vue'),
+                    beforeEnter: ifAuthenticated
+                },
+                {
+                    path: '/my-formule',
+                    name: 'MyFormule',
+                    component: () => import('../pages/MyFormule.vue'),
+                    beforeEnter: ifAuthenticated
+                },
+                {
+                    path: '/my-account',
+                    name: 'MyAccount',
+                    component: () => import('../pages/MyAccount.vue'),
+                    beforeEnter: ifAuthenticated
+                },
+                {
+                    path: '/my-emergencies',
+                    name: 'MyEmergencies',
+                    component: () => import('../pages/MyEmergencies.vue'),
                     beforeEnter: ifAuthenticated
                 },
             ]

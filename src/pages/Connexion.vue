@@ -79,7 +79,7 @@ export default {
                     this.$store.commit('auth/setToken', response);
                     this.$store.commit('auth/setMobile', this.form.fields.username);
                     this.$axios.defaults.headers.common['Authorization'] = `${response.token_type} ${response.access_token}`;
-                    this.$router.push({ name: 'dashboard' });
+                    this.$router.push({ name: 'MyConso' });
                 })
                 .catch(error => {
                     if (error.status == 400) {
