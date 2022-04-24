@@ -165,13 +165,13 @@ export default {
 
                 // 05 Menu
                 {
-                    title: 'Service',
+                    title: 'Paiement marchand',
                     icon: illustrationIcon,
                     tag: TAG_AUTRE,
                     routeName: 'Dashboard'
                 },
                 {
-                    title: 'Demander',
+                    title: 'Demander SOS',
                     icon: sosIcon,
                     tag: TAG_AUTRE,
                     routeName: 'Dashboard'
@@ -185,9 +185,8 @@ export default {
                 { title: 'Achat', menu: this.filterMenu(TAG_ACHAT) },
                 { title: 'Transfert', menu: this.filterMenu(TAG_TRANSFERT) },
                 { title: 'Facture', menu: this.filterMenu(TAG_FACTURE) },
-                { title: 'Marchand', menu: this.filterMenu(TAG_AUTRE) },
                 { title: 'Sargal', menu: this.filterMenu(TAG_SARGAL) },
-                { title: 'SOS', menu: this.filterMenu(TAG_AUTRE) }
+                { title: 'Autres services', menu: this.filterMenu(TAG_AUTRE) }
             ]
         }
     },

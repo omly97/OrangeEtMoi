@@ -5,8 +5,7 @@ import VueAxios from 'vue-axios';
 Vue.use(VueAxios, axios)
 
 const instance = axios.create({
-    // baseURL: "http://10.152.2.66:5000",
-    baseURL: "https://sidped-script.herokuapp.com",
+    baseURL: "https://orangeetmoi.orange.sn",
     headers: {"Content-type": "application/json"}
 });
 

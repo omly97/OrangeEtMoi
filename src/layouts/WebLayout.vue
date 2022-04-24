@@ -1,5 +1,16 @@
 <template>
     <v-app>
+        <!-- App Bar -->
+        <v-app-bar app>
+            <v-app-bar-title>Orange et Moi</v-app-bar-title>
+            <v-spacer></v-spacer>
+            <div class="d-flex justify-center mr-5">
+                <v-icon>mdi-weather-sunny</v-icon>
+                <v-switch v-model="$vuetify.theme.dark" class="mt-5 mx-1"></v-switch>
+                <v-icon>mdi-weather-night</v-icon>
+            </div>
+        </v-app-bar>
+
         <!-- Main -->
         <v-main>
             <v-card flat :color="$vuetify.theme.dark ? 'transparent' : '#F3F3F8'" height="100%">
